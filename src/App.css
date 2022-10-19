@@ -1,38 +1,62 @@
-.App {
+.below_title {
+  display: flex;
+}
+
+.coin_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 70px;
+  margin-top: 40px;
+}
+.top_label {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid black;
+}
+
+.coin_table {
+  display: flex;
+  justify-content: space-between;
+}
+
+.api_table {
+  width: 70%;
+  margin-left: 20px;
+}
+.label1,
+.label2,
+.label3,
+.label4 {
+  width: 24%;
+}
+
+.label5 {
+  width: 6%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.coin_name,
+.coin_symbol,
+.coin_price,
+.coin_volume {
+  width: 24%;
+  margin-bottom: 20px;
+  border-bottom: solid 1px black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.coin_ath {
+  width: 6%;
+  margin-bottom: 20px;
+  border-bottom: solid 1px black;
+}
+.coin_list {
+  list-style: none;
+  height: 35px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.coin_ath {
+  width: 50px;
 }
