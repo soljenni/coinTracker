@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
 .below_title {
   display: flex;
 }
@@ -59,4 +61,44 @@
 
 .coin_ath {
   width: 50px;
+}
+
+.coin_trans {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  align-items: center;
+  margin-left: 80px;
+}
+
+.cointrans_title {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.coin_trans select {
+  padding: 10px;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+optgroup {
+  font-size: 30px;
+}
+
+.coin_trans input {
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 8px;
+  width: 80%;
+}
+
+.coin_trans button {
+  background-color: white;
+  padding: 10px;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+  width: 50%;
 }

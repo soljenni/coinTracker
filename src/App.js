@@ -4,6 +4,10 @@ import "./App.css";
 function App() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
+  const [amount, setAmount] = useState(0);
+
+  const [weight, setWeight] = useState(0);
+  const [neutral, setNeutral] = useState(true);
 
   useEffect(() => {
     fetch("https://api.coinpaprika.com/v1/tickers")
@@ -14,13 +18,31 @@ function App() {
       });
   }, []);
   const recoin = coins.slice(0, 20);
+
+  const coincase = (event) => {
+    if (event.target.value === "Choose a coin") {
+      setNeutral(true);
+      onReset();
+    } else {
+      setNeutral(false);
+      setWeight(event.target.value);
+    }
+  };
+
+  const onChange = (event) => {
+    setAmount(event.target.value);
+  };
+
+  const onReset = () => {
+    setAmount(0);
+  };
   return (
     <div>
       {loading ? (
         <strong>"loading..."</strong>
       ) : (
         <div>
-          <h1 className="coin_title">Coin Trackers({recoin.length})</h1>
+          <h1 className="coin_title">Coin Trackers (Top {recoin.length})</h1>
 
           <div className="below_title">
             <ul className="api_table">
@@ -49,8 +71,31 @@ function App() {
                 </li>
               ))}
             </ul>
-
-            <div>Transfer USD to Coin</div>
+            <div className="coin_trans">
+              <div className="cointrans_title">Transfer USD to Coin</div>
+              <select onChange={coincase}>
+                <optgroup>
+                  <option>Choose a coin</option>
+                  {recoin.map((coin) => (
+                    <option value={coin.quotes.USD.price.toFixed(1)}>
+                      {coin.name}
+                    </option>
+                  ))}
+                </optgroup>
+              </select>
+              <label>Dollars Input </label>
+              <input
+                value={amount}
+                onChange={onChange}
+                disabled={neutral}
+              ></input>
+              <label>Coin Output </label>
+              <input
+                value={(amount * weight).toFixed(1)}
+                disabled={neutral}
+              ></input>
+              <button onClick={onReset}>Reset</button>
+            </div>
           </div>
         </div>
       )}
